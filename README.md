@@ -1,4 +1,4 @@
-# vx-home-v2
+# vx3
 
 This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Next, TRPC, and more.
 

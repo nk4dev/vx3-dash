@@ -18,14 +18,18 @@ export default function Dashboard() {
 	}, [session, isPending]);
 
 	if (isPending) {
-		return <div>Loading...</div>;
+		<div className="flex items-center justify-center min-h-screen">
+			<div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+		</div>;
 	}
 
 	return (
 		<div>
-			<h1>Dashboard</h1>
-			<p>Welcome {session?.user.name}</p>
+			<h1>{session?.user.name}'s Dashboard</h1>
 			<p>privateData: {privateData.data?.message}</p>
+			<div className="py-4 px-1">
+				<h2 className="font-bold text-2xl">Apps</h2>
+			</div>
 		</div>
 	);
 }
