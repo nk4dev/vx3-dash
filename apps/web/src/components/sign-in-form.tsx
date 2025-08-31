@@ -6,7 +6,7 @@ import Loader from "./loader";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function SignInForm({
 	onSwitchToSignUp,
@@ -14,6 +14,7 @@ export default function SignInForm({
 	onSwitchToSignUp: () => void;
 }) {
 	const router = useRouter();
+	const searchParams = useSearchParams();
 	const { isPending } = authClient.useSession();
 
 	const form = useForm({
@@ -29,7 +30,8 @@ export default function SignInForm({
 				},
 				{
 					onSuccess: () => {
-						router.push("/dashboard");
+						const redirect = searchParams.get("redirect");
+						router.push((redirect || "/dashboard") as any);
 						toast.success("Sign in successful");
 					},
 					onError: (error) => {

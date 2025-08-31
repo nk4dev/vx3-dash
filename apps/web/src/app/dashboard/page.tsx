@@ -9,7 +9,7 @@ export default function Dashboard() {
 	const router = useRouter();
 	const { data: session, isPending } = authClient.useSession();
 
-	const privateData = useQuery(trpc.privateData.queryOptions());
+	//const privateData = useQuery(trpc.privateData.queryOptions());
 
 	useEffect(() => {
 		if (!session && !isPending) {
@@ -24,11 +24,24 @@ export default function Dashboard() {
 	}
 
 	return (
-		<div>
-			<h1>{session?.user.name}'s Dashboard</h1>
-			<p>privateData: {privateData.data?.message}</p>
+		<div className="p-3 container mx-auto">
+			<h1 className="text-3xl">{session?.user.name}'s Dashboard</h1>
+			<div>
+				<h2 className="text-2xl mb-2">todays balance</h2>
+				<p className="text-3xl">BTC: $0.00</p>
+				<p className="text-3xl">ETH: $0.00</p>
+			</div>
 			<div className="py-4 px-1">
-				<h2 className="font-bold text-2xl">Apps</h2>
+				<h2 className="text-2xl mb-2">Apps</h2>
+				<button
+					className="text-xl border border-gray-300 rounded-md p-5"
+					onClick={() => {
+						router.push('/create/project' as any);
+					}}
+				>
+					<p>Create</p>
+					<p>Project</p>
+				</button>
 			</div>
 		</div>
 	);
