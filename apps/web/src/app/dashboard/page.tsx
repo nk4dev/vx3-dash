@@ -1,9 +1,9 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
-import { useQuery } from "@tanstack/react-query";
-import { trpc } from "@/utils/trpc";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+
+import { Wallet } from "@/components/ui/wallet";
 
 export default function Dashboard() {
 	const router = useRouter();
@@ -43,6 +43,7 @@ export default function Dashboard() {
 					<p>Project</p>
 				</button>
 			</div>
+			<Wallet />
 		</div>
 	);
 }
