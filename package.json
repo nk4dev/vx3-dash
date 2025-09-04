@@ -1,6 +1,7 @@
 {
-	"name": "vx-home-v2",
+	"name": "vx3",
 	"private": true,
+	"version": "0.1.7",
 	"workspaces": [
 		"apps/*",
 		"packages/*"
